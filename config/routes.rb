@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'scores/new'
+
+  get 'scores/create'
+
   resources :games
   get 'landing/index'
 
