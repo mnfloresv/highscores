@@ -1,21 +1,48 @@
-<h1>Add score</h1>
-<p>Enter the score obtained by a player in one of the games.</p>
+<p id="notice">
+  <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+</p>
 
-<%= form_for @score, url: {action: "create"} do |form| %>
+<h1>Add score</h1>
+<p>Enter a new score obtained by a player in one of the games.</p>
+
+ <%= form_for @score, url: {action: "create"} do |form| %>
+
+   <% if @score.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@score.errors.count, "error") %> prohibited this score from being saved:</h2>
+
+       <ul>
+       <% @score.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+       </ul>
+     </div>
+   <% end %>
+
   <div class="field form-group row">
-    <%= form.label :player_email, :class => "col-md-2 col-form-label" %>
+    <div class="col-md-2">
+      <%= form.label :player_email, :class => "col-form-label" %>
+    </div>
     <div class="col-md-4">
       <%= form.email_field :player_email, id: :player_email, placeholder: :player_email, :class => "form-control" %>
     </div>
   </div>
   <div class="field form-group row">
-    <%= form.label :game, :class => "col-md-2 col-form-label" %>
+    <div class="col-md-2">
+      <%= form.label :game, :class => "col-form-label" %>
+    </div>
     <div class="col-md-4">
       <%= form.collection_select(:game_id, Game.all, :id, :name, {}, {:class=>"custom-select"}) %>
     </div>
   </div>
   <div class="field form-group row">
-    <%= form.label :score, :class => "col-md-2 col-form-label" %>
+    <div class="col-md-2">
+      <%= form.label :score, :class => "col-form-label" %>
+    </div>
     <div class="col-md-4">
       <%= form.text_field :score, id: :score, placeholder: :score, :class => "form-control" %>
     </div>
@@ -25,3 +52,5 @@
     <%= form.submit :class => "btn btn-light" %>
   </div>
 <% end %>
+
+<%= link_to 'Back', root_path, :class => "btn btn-link" %>
