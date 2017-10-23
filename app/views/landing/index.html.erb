@@ -1,2 +1,27 @@
-<h1>Landing#index</h1>
-<p>Find me in app/views/landing/index.html.erb</p>
+<div class="row">
+  <div class="col-lg-4">
+    <%= image_tag "game-controller.svg", width: 140, height: 140 %>
+    <h2>Set up games</h2>
+    <p>List, show, edit or delete games from the high scores service and create new games through an easy web form. The games only need to have a name.</p>
+    <p><a class="btn btn-secondary bg-dark" href="<%= games_path %>" role="button">Set up new games</a></p>
+  </div>
+  <div class="col-lg-4">
+    <%= image_tag "score.svg", width: 140, height: 140 %>
+    <h2>Add score</h2>
+    <p>A form with some fields to manually send the score obtained by a player in one of the games. Remember an API endpoint is also offered for this purpose.</p>
+    <p><a class="btn btn-secondary bg-dark" href="#" role="button">Send a new score</a></p>
+  </div>
+  <div class="col-lg-4">
+    <%= image_tag "ranking.svg", width: 140, height: 140 %>
+    <h2>View ranking</h2>
+    <p>A screen showing the ranking of the top 10 players. The system uses the position of the max score of each player in each game in order to give them a global ranking.</p>
+    <p><a class="btn btn-secondary bg-dark" href="#" role="button">Show top players</a></p>
+  </div>
+</div>
+
+<hr>
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">Developed by Manuel Flores Vivas. Credit icons by Flaticon.</span>
+  </div>
+</footer>

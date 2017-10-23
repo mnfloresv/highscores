@@ -6,9 +6,26 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar sticky-top navbar-dark bg-primary">
+      <a class="navbar-brand" href="/">High Scores</a>
+    </nav>
+
+    <% if params[:controller]=="landing" %>
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-4">High Scores!</h1>
+          <p>High score service for a new game console by a well known brand using Ruby on Rails. The games can use a REST API in order to communicate with the service. And to help debugging, the following features are offered.</p>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
