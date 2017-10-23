@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
+<h1>Set up games</h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.name %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', game, :class => "btn btn-link" %></td>
+        <td><%= link_to 'Edit', edit_game_path(game), :class => "btn btn-link" %></td>
+        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-link" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Game', new_game_path %>
+<%= link_to 'New Game', new_game_path, :class => "btn btn-light" %>
