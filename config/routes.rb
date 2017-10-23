@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'scores/new'
 
-  get 'scores/create'
+  post 'scores', to: 'scores#create'
 
   resources :games
   get 'landing/index'
