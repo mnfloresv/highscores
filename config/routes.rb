@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ranking', to: 'ranking#index'
+
   get 'scores/new'
 
   post 'scores', to: 'scores#create'
