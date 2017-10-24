@@ -1,2 +1,27 @@
-<h1>Ranking#index</h1>
-<p>Find me in app/views/ranking/index.html.erb</p>
+<p></p>
+
+<h1>Ranking</h1>
+<p>Global ranking of the top 10 players.</p>
+
+<div>
+  <% if @ranking.empty? %>
+    <p>No scores yet, please wait until a player finish a game.</p>
+  <% else %>
+    <table class="table table-striped table-bordered table-responsive-sm">
+      <thead>
+        <tr>
+        <th>Position</th><th>Player email</th><th>Top score</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @ranking.each do |item| %>
+          <tr>
+            <td>#<%= item.position %></td>
+            <td><%= item.player_email %></td>
+            <td><%= item.score%> points</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
