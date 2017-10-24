@@ -2,12 +2,14 @@ class RankingService
   def call
     ranking = Hash.new
 
-    Game.all.each do |game|
-      # Get top 5 players of each game
-      top5 = game.scores.select("player_email, MAX(score) AS score").group(:player_email).order(score: :desc).limit(5)
+    # Fetch max score of players in all games
+    max_scores = Score.select("game_id, player_email, MAX(score) AS score").group(:game_id, :player_email).order(:game_id, score: :desc)
 
-      # Transform with the table
-      points = top5.map(&:player_email).zip([25,18,15,12,10]).to_h
+    # For each game
+    max_scores.group_by(&:game_id).each do |_,scores|
+
+      # Transform top 5 players with the table
+      points = scores.take(5).pluck(:player_email).zip([25, 18, 15, 12, 10]).to_h
 
       # Combine in global ranking
       ranking.merge!(points){|_,o,n| o+n}
