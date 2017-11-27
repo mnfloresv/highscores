@@ -2,7 +2,7 @@
 
 Exercise consisting of buiding a high score service for a new game console using Ruby on Rails.
 
-![High scores screenshot](https://i.imgur.com/JX8piJ3.png)
+![High scores screenshot](https://i.imgur.com/ofFG3S6.png)
 
 ## Set up environment
 
