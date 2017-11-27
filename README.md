@@ -1,8 +1,8 @@
-# README
+# High scores
 
-## High records
+Exercise consisting of buiding a high score service for a new game console using Ruby on Rails.
 
-Exercise consisting of builind a high score service for a new game console using Ruby on Rails.
+![High scores screenshot](https://i.imgur.com/JX8piJ3.png)
 
 ## Set up environment
 
